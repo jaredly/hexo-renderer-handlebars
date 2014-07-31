@@ -9,11 +9,18 @@ function handlebarsRenderer(data, locals) {
     helperDir = path.join(hexo.theme_dir, 'helper');
 
   var partialDir = path.join(hexo.theme_dir, 'layout', 'partials')
-  var partials = fs.readdirSync(partialDir)
-  partials.forEach(function (fname) {
-    if (fname.split('.').slice(-1)[0] !== 'hbs') return
-    handlebars.registerPartial(fname.split('.')[0], fs.readFileSync(path.join(partialDir, fname)).toString())
-  })
+  var partials;
+  try {
+    var partials = fs.readdirSync(partialDir)
+  } catch (e) {
+    // if this fails, there just aren't any partials. No problem.
+  }
+  if (partials) {
+    partials.forEach(function (fname) {
+      if (fname.split('.').slice(-1)[0] !== 'hbs') return
+      handlebars.registerPartial(fname.split('.')[0], fs.readFileSync(path.join(partialDir, fname)).toString())
+    })
+  }
 
   var helpers = require(helperDir);
   for (var name in locals) {
