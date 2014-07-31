@@ -1,0 +1,41 @@
+{
+  "name": "hexo-renderer-handlebars",
+  "version": "0.0.3",
+  "description": "Handlebars renderer plugin for Hexo.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/heroicyang/hexo-renderer-handlebars.git"
+  },
+  "dependencies": {
+    "handlebars": "~1.3"
+  },
+  "engines": {
+    "hexo": ">= 2.0.0"
+  },
+  "keywords": [
+    "hexo",
+    "renderer",
+    "plugin",
+    "handlebars"
+  ],
+  "author": {
+    "name": "Heroic Yang",
+    "email": "me@heroicyang.com",
+    "url": "http://heroicyang.com/"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://raw.github.com/heroicyang/hexo-renderer-handlebars/master/LICENSE"
+  },
+  "readme": "[Handlebars](http://handlebarsjs.com) renderer plugin for [Hexo](http://zespia.tw/hexo)\n====================================\n> With this plugin you can use the [handlebars](http://handlebarsjs.com/) to render theme. For Hexo 2.x\n\n##Usage\n\n###Install\n\n``` bash\nnpm install hexo-renderer-handlebars --save\n```\n\n###Theme Development\n\nIf you use handlebars to develop themes, may need to customize helpers. You can create a folder named `helper` in the theme root, then exports all helpers to an javascript object in `index.js`.  \n\nFor example:  \n\n```\n.\n├── languages\n└── layout\n└── helper\n\t└── index.js\n```\n\n`index.js`:\n\n``` javascript\nmodule.exports = {\n  foo: function() { return 'foo.'; },\n  bar: function() { return 'bar.'; }\n};\n```",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/heroicyang/hexo-renderer-handlebars/issues"
+  },
+  "homepage": "https://github.com/heroicyang/hexo-renderer-handlebars",
+  "_id": "hexo-renderer-handlebars@0.0.3",
+  "_shasum": "cea410ba74a71d8eab8b4e1bf4c4cb247f43e6fc",
+  "_from": "hexo-renderer-handlebars@",
+  "_resolved": "https://registry.npmjs.org/hexo-renderer-handlebars/-/hexo-renderer-handlebars-0.0.3.tgz"
+}
