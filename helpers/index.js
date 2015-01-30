@@ -228,3 +228,9 @@ exports.partial = require('./partial');
  * {{tagcloud [tags] [min_font=10] [max_font=20] [...]}}
  */
 exports.tagcloud = require('./tagcloud');
+
+/**
+ * Hexo `get_posts` helper.
+ * {{get_posts [site] [options]}}
+ */
+exports.get_posts = require('./get_posts');
