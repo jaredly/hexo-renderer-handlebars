@@ -231,6 +231,6 @@ exports.tagcloud = require('./tagcloud');
 
 /**
  * Hexo `get_posts` helper.
- * {{get_posts [site] [options]}}
+ * {{get_posts [count=3] [sort="date"] [...]}}
  */
 exports.get_posts = require('./get_posts');
