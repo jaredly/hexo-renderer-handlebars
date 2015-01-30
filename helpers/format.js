@@ -2,19 +2,19 @@ var handlebars = require('handlebars'),
   hexoHelpers = hexo.extend.helper.list();
 
 exports.strip_html = function(content) {
-  return hexoHelpers.strip_html(content);
+  return hexoHelpers.strip_html.call(this, content);
 };
 
 exports.trim = function(content) {
-  return hexoHelpers.trim(content);
+  return hexoHelpers.trim.call(this, content);
 };
 
 exports.titlecase = function(content) {
-  return hexoHelpers.titlecase(content);
+  return hexoHelpers.titlecase.call(this, content);
 };
 
 exports.markdown = function(text) {
-  var result = hexoHelpers.markdown(text);
+  var result = hexoHelpers.markdown.call(this, text);
   return new handlebars.SafeString(result);
 };
 
@@ -41,5 +41,5 @@ exports.truncate = function(text, length, options) {
     }
   }
 
-  return hexoHelpers.truncate(text, opts);
+  return hexoHelpers.truncate.call(this, text, opts);
 };

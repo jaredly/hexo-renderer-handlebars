@@ -2,7 +2,7 @@ var path = require('path')
   , fs = require('fs')
   , handlebars = require('handlebars');
 
-require('./helpers');
+var _helpers = require('./helpers');
 
 function handlebarsRenderer(data, locals) {
   var template = handlebars.compile(data.text),
@@ -23,6 +23,11 @@ function handlebarsRenderer(data, locals) {
   }
 
   var helpers = require(helperDir);
+  for(var name in _helpers) {
+    if(name in helpers) continue;
+    helpers[name] = _helpers[name];
+  }
+    
   for (var name in locals) {
     if ('function' !== typeof locals[name]) continue
     if (name in helpers) continue

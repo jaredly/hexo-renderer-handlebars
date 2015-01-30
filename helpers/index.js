@@ -1,5 +1,3 @@
-var handlebars = require('handlebars');
-
 /**
  * Hexo `css` helper.
  * {{css path [path1] [path2] [...]}}
@@ -7,7 +5,7 @@ var handlebars = require('handlebars');
  *    {{css 'style.css'}}
  *    {{css 'style.css' 'screen.css'}}
  */
-handlebars.registerHelper('css', require('./css'));
+exports.css = require('./css');
 
 var date = require('./date');
 /**
@@ -17,14 +15,14 @@ var date = require('./date');
  *    {{date Date.now()}}
  *    {{date Date.now() 'YYYY/M/D'}}
  */
-handlebars.registerHelper('date', date.date);
+exports.date = date.date;
 /**
  * Hexo `date_xml` helper.
  * {{date_xml date}}
  * Examples:
  *    {{date_xml Date.now()}}
  */
-handlebars.registerHelper('date_xml', date.date_xml);
+exports.date_xml = date.date_xml;
 /**
  * Hexo `time` helper.
  * {{time date [format]}}
@@ -32,7 +30,7 @@ handlebars.registerHelper('date_xml', date.date_xml);
  *    {{time Date.now()}}
  *    {{time Date.now() 'h:mm:ss a'}}
  */
-handlebars.registerHelper('time', date.time);
+exports.time = date.time;
 /**
  * Hexo `full_date` helper.
  * {{full_date date [format]}}
@@ -40,7 +38,7 @@ handlebars.registerHelper('time', date.time);
  *    {{full_date new Date()}}
  *    {{full_date new Date() 'dddd, MMMM Do YYYY, h:mm:ss a'}}
  */
-handlebars.registerHelper('full_date', date.full_date);
+exports.full_date = date.full_date;
 /**
  * Hexo `time_tag` helper.
  * {{time_tag date [format]}}
@@ -48,12 +46,12 @@ handlebars.registerHelper('full_date', date.full_date);
  *    {{time_tag Date.now()}}
  *    {{time_tag Date.now() 'YYYY/M/D'}}
  */
-handlebars.registerHelper('time_tag', date.time_tag);
+exports.time_tag = date.time_tag;
 /**
  * Hexo `moment` helper.
  * [Moment.js] library.
  */
-handlebars.registerHelper('moment', date.moment);
+exports.moment = date.moment;
 
 var form = require('./form');
 /**
@@ -63,7 +61,7 @@ var form = require('./form');
  *    {{search_form}}
  *    {{search_form class='footer-search-form' text='Input a keyword' button=true}}
  */
-handlebars.registerHelper('search_form', form.search_form);
+exports.search_form = form.search_form;
 
 var format = require('./format');
 /**
@@ -72,40 +70,40 @@ var format = require('./format');
  * Examples:
  *    {{strip_html 'It's not <b>important</b> anymore!'}}
  */
-handlebars.registerHelper('strip_html', format.strip_html);
+exports.strip_html = format.strip_html;
 /**
  * Hexo `trim` helper.
  * {{trim string}}
  */
-handlebars.registerHelper('trim', format.trim);
+exports.trim = format.trim;
 /**
  * Hexo `titlecase` helper.
  * {{titlecase string}}
  * Examples:
  *    {{titlecase 'this is an apple'}}
  */
-handlebars.registerHelper('titlecase', format.titlecase);
+exports.titlecase = format.titlecase;
 /**
  * Hexo `markdown` helper.
  * {{markdown string}}
  * Examples:
  *    {{markdown 'make me **strong**'}}
  */
-handlebars.registerHelper('markdown', format.markdown);
+exports.markdown = format.markdown;
 /**
  * Hexo `word_wrap` helper.
  * {{word_wrap str [length]}}
  * Examples:
  *    {{word_wrap 'Once upon a time' 8}}
  */
-handlebars.registerHelper('word_wrap', format.word_wrap);
+exports.word_wrap = format.word_wrap;
 /**
  * Hexo `truncate` helper.
  * {{truncate string length [omission='...'] [seperator='']}}
  * Examples:
  *    {{truncate 'Once upon a time in a world far far away' 16}}
  */
-handlebars.registerHelper('truncate', format.truncate);
+exports.truncate = format.truncate;
 
 /**
  * Hexo `gravatar` helper.
@@ -114,7 +112,7 @@ handlebars.registerHelper('truncate', format.truncate);
  *    {{gravatar 'a@abc.com'}}
  *    {{gravatar 'a@abc.com' 40}}
  */
-handlebars.registerHelper('gravatar', require('./gravatar'));
+exports.gravatar = require('./gravatar');
 
 var is = require('./is');
 /**
@@ -123,56 +121,56 @@ var is = require('./is');
  *   template logic
  * {{/is_current}}
  */
-handlebars.registerHelper('is_current', is.is_current);
+exports.is_current = is.is_current;
 /**
  * Hexo `is_home` helper.
  * {{#is_home}}
  *   template logic
  * {{/is_home}}
  */
-handlebars.registerHelper('is_home', is.is_home);
+exports.is_home = is.is_home;
 /**
  * Hexo `is_post` helper.
  * {{#is_post}}
  *   template logic
  * {{/is_post}}
  */
-handlebars.registerHelper('is_post', is.is_post);
+exports.is_post = is.is_post;
 /**
  * Hexo `is_archive` helper.
  * {{#is_archive}}
  *   template logic
  * {{/is_archive}}
  */
-handlebars.registerHelper('is_archive', is.is_archive);
+exports.is_archive = is.is_archive;
 /**
  * Hexo `is_year` helper.
  * {{#is_year}}
  *   template logic
  * {{/is_year}}
  */
-handlebars.registerHelper('is_year', is.is_year);
+exports.is_year = is.is_year;
 /**
  * Hexo `is_month` helper.
  * {{#is_month}}
  *   template logic
  * {{/is_month}}
  */
-handlebars.registerHelper('is_month', is.is_month);
+exports.is_month = is.is_month;
 /**
  * Hexo `is_category` helper.
  * {{#is_category}}
  *   template logic
  * {{/is_category}}
  */
-handlebars.registerHelper('is_category', is.is_category);
+exports.is_category = is.is_category;
 /**
  * Hexo `is_tag` helper.
  * {{#is_tag}}
  *   template logic
  * {{/is_tag}}
  */
-handlebars.registerHelper('is_tag', is.is_tag);
+exports.is_tag = is.is_tag;
 
 /**
  * Hexo `js` helper.
@@ -181,7 +179,7 @@ handlebars.registerHelper('is_tag', is.is_tag);
  *    {{js 'script.js'}}
  *    {{js 'script.js' 'gallery.js'}}
  */
-handlebars.registerHelper('js', require('./js'));
+exports.js = require('./js');
 
 var link = require('./link');
 /**
@@ -192,7 +190,7 @@ var link = require('./link');
  *    {{link_to 'http://www.google.com' 'Google'}}
  *    {{link_to 'http://www.google.com' 'Google' true}}
  */
-handlebars.registerHelper('link_to', link.link_to);
+exports.link_to = link.link_to;
 /**
  * Hexo `mail_to` helper.
  * {{mail_to path [text]}}
@@ -200,7 +198,7 @@ handlebars.registerHelper('link_to', link.link_to);
  *    {{mail_to 'a@abc.com'}}
  *    {{mail_to 'a@abc.com' 'Email'}}
  */
-handlebars.registerHelper('mail_to', link.mail_to);
+exports.mail_to = link.mail_to;
 
 var number = require('./number');
 /**
@@ -211,22 +209,22 @@ var number = require('./number');
  *    {{number_format 12345.67 delimiter=''}}
  *    {{number_format 12345.67 separator='/'}}
  */
-handlebars.registerHelper('number_format', number.number_format);
+exports.number_format = number.number_format;
 
 /**
  * Hexo `paginator` helper
  * {{paginator [base='/'] [format='page/%d/'] [...]}}
  */
-handlebars.registerHelper('paginator', require('./paginator'));
+exports.paginator = require('./paginator');
 
 /**
  * Hexo `partial` helper.
  * {{partial layout [locals hash]}}
  */
-handlebars.registerHelper('partial', require('./partial'));
+exports.partial = require('./partial');
 
 /**
  * Hexo `tagcloud` helper.
  * {{tagcloud [tags] [min_font=10] [max_font=20] [...]}}
  */
-handlebars.registerHelper('tagcloud', require('./tagcloud'));
+exports.tagcloud = require('./tagcloud');
