@@ -5,6 +5,6 @@ module.exports = function() {
     hexoHelpers = hexo.extend.helper.list(),
     result;
 
-  result = hexoHelpers.js(args);
+  result = hexoHelpers.js.call(this, args);
   return new handlebars.SafeString(result);
 };
