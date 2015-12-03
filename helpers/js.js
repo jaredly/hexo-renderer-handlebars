@@ -1,10 +1,10 @@
 var handlebars = require('handlebars');
 
-module.exports = function() {
+module.exports = function(hexo){return function() {
   var args = Array.prototype.slice.call(arguments, 0, arguments.length - 1),
     hexoHelpers = hexo.extend.helper.list(),
     result;
 
-  result = hexoHelpers.js.call(this, args);
+  result = hexoHelpers.js(args);
   return new handlebars.SafeString(result);
-};
+}};

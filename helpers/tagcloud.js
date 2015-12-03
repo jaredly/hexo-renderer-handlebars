@@ -1,6 +1,6 @@
 var handlebars = require('handlebars');
 
-module.exports = function(tags, options){
+module.exports = function(hexo){return function(tags, options){
   var hexoHelpers = hexo.extend.helper.list(),
     arg,
     opts,
@@ -24,6 +24,6 @@ module.exports = function(tags, options){
       break;
   }
 
-  result = hexoHelpers.tagcloud.call(this, tags, opts);
+  result = hexoHelpers.tagcloud(tags, opts);
   return new handlebars.SafeString(result);
-};
+}};
