@@ -8,7 +8,7 @@
     "url": "git://github.com/jaredly/hexo-renderer-handlebars.git"
   },
   "dependencies": {
-    "handlebars": "~1.3"
+    "handlebars": "^4.0.5"
   },
   "engines": {
     "hexo": ">= 3.0.0"
