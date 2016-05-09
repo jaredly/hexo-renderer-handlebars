@@ -1,6 +1,6 @@
-var path = require('path')
-  , fs = require('fs')
-  , handlebars = require('handlebars');
+var path = require('path');
+var fs = require('fs');
+var handlebars = require('handlebars');
 
 require('./helpers')(hexo);
 
@@ -8,25 +8,27 @@ function handlebarsRenderer(data, locals) {
   var template = handlebars.compile(data.text),
     helperDir = path.join(hexo.theme_dir, 'helper');
 
-  var partialDir = path.join(hexo.theme_dir, 'layout', 'partials')
+  var partialDir = path.join(hexo.theme_dir, 'layout', 'partials');
   var partials;
+  
   try {
-    var partials = fs.readdirSync(partialDir)
+    partials = fs.readdirSync(partialDir);
   } catch (e) {
     // if this fails, there just aren't any partials. No problem.
   }
+
   if (partials) {
     partials.forEach(function (fname) {
-      if (fname.split('.').slice(-1)[0] !== 'hbs') return
-      handlebars.registerPartial(fname.split('.')[0], fs.readFileSync(path.join(partialDir, fname)).toString())
-    })
+      if (fname.split('.').slice(-1)[0] !== 'hbs') return;
+      handlebars.registerPartial(fname.split('.')[0], fs.readFileSync(path.join(partialDir, fname)).toString());
+    });
   }
 
   var helpers = require(helperDir)(hexo);
   for (var name in locals) {
-    if ('function' !== typeof locals[name]) continue
-    if (name in helpers) continue
-    helpers[name] = locals[name]
+    if ('function' !== typeof locals[name]) continue;
+    if (name in helpers) continue;
+    helpers[name] = locals[name];
   }
 
   return template(locals, {
