@@ -203,6 +203,18 @@ module.exports = function (hexo) {
   *    {{mail_to 'a@abc.com' 'Email'}}
   */
   handlebars.registerHelper('mail_to', link.mail_to);
+  /**
+  * Hexo `url_for` helper.
+  * {{url_for path}}
+  * Examples:
+  *    {{url_for '/css/styles.css'}}
+  */
+  handlebars.registerHelper('url_for', link.url_for);
+  /**
+  * Hexo `relative_url` helper.
+  * {{relative_url from to}}
+  */
+  handlebars.registerHelper('relative_url', link.relative_url);
 
   var number = require('./number');
   /**
