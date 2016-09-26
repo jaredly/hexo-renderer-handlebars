@@ -4,25 +4,25 @@ module.exports = function(hexo) {
 
   return {
     strip_html: function(content) {
-      return hexoHelpers.strip_html(content);
+      return hexoHelpers.strip_html.call(this, content);
     },
 
     trim: function(content) {
-      return hexoHelpers.trim(content);
+      return hexoHelpers.trim.call(this, content);
     },
 
     titlecase: function(content) {
-      return hexoHelpers.titlecase(content);
+      return hexoHelpers.titlecase.call(this, content);
     },
 
     markdown: function(text) {
-      var result = hexoHelpers.markdown(text);
+      var result = hexoHelpers.markdown.call(this, text);
       return new handlebars.SafeString(result);
     },
 
     word_wrap: function(text, width) {
       var args = Array.prototype.slice.call(arguments, 0, arguments.length - 1);
-      return hexoHelpers.word_wrap.apply(null, args);
+      return hexoHelpers.word_wrap.apply(this, args);
     },
 
     truncate: function(text, length, options) {
@@ -43,7 +43,7 @@ module.exports = function(hexo) {
         }
       }
 
-      return hexoHelpers.truncate(text, opts);
-    },
+      return hexoHelpers.truncate.call(this, text, opts);
+    }
   }
 }

@@ -5,6 +5,6 @@ module.exports = function(hexo){return function(view, options){
     opts = options.hash || {},
     result;
 
-  result = hexoHelpers.partial(view, opts);
+  result = hexoHelpers.partial.call(this, view, opts);
   return new handlebars.SafeString(result);
 }};

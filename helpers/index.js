@@ -183,7 +183,7 @@ module.exports = function (hexo) {
   *    {{js 'script.js'}}
   *    {{js 'script.js' 'gallery.js'}}
   */
-  handlebars.registerHelper('js', require('./js'));
+  handlebars.registerHelper('js', require('./js')(hexo));
 
   var link = require('./link')(hexo);
   /**

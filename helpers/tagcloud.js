@@ -24,6 +24,6 @@ module.exports = function(hexo){return function(tags, options){
       break;
   }
 
-  result = hexoHelpers.tagcloud(tags, opts);
+  result = hexoHelpers.tagcloud.call(this, tags, opts);
   return new handlebars.SafeString(result);
 }};

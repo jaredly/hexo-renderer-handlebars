@@ -8,7 +8,7 @@ module.exports = function (hexo) {
         args = slice.call(arguments, 0, arguments.length - 1),
         options = slice.call(arguments, arguments.length - 1);
 
-      if (hexoHelpers.is_current.apply(null, args)) {
+      if (hexoHelpers.is_current.apply(this, args)) {
         return options.fn(this);
       }
     },
@@ -17,7 +17,7 @@ module.exports = function (hexo) {
       var slice = Array.prototype.slice,
         options = slice.call(arguments, arguments.length - 1);
 
-      if (hexoHelpers.is_home()) {
+      if (hexoHelpers.is_home.call(this)) {
         return options.fn(this);
       }
     },
@@ -26,7 +26,7 @@ module.exports = function (hexo) {
       var slice = Array.prototype.slice,
         options = slice.call(arguments, arguments.length - 1);
 
-      if (hexoHelpers.is_post()) {
+      if (hexoHelpers.is_post.call(this)) {
         return options.fn(this);
       }
     },
@@ -35,7 +35,7 @@ module.exports = function (hexo) {
       var slice = Array.prototype.slice,
         options = slice.call(arguments, arguments.length - 1);
 
-      if (hexoHelpers.is_archive()) {
+      if (hexoHelpers.is_archive.call(this)) {
         return options.fn(this);
       }
     },
@@ -44,7 +44,7 @@ module.exports = function (hexo) {
       var slice = Array.prototype.slice,
         options = slice.call(arguments, arguments.length - 1);
 
-      if (hexoHelpers.is_year()) {
+      if (hexoHelpers.is_year.call(this)) {
         return options.fn(this);
       }
     },
@@ -53,7 +53,7 @@ module.exports = function (hexo) {
       var slice = Array.prototype.slice,
         options = slice.call(arguments, arguments.length - 1);
 
-      if (hexoHelpers.is_month()) {
+      if (hexoHelpers.is_month.call(this)) {
         return options.fn(this);
       }
     },
@@ -62,7 +62,7 @@ module.exports = function (hexo) {
       var slice = Array.prototype.slice,
         options = slice.call(arguments, arguments.length - 1);
 
-      if (hexoHelpers.is_category()) {
+      if (hexoHelpers.is_category.call(this)) {
         return options.fn(this);
       }
     },
@@ -71,7 +71,7 @@ module.exports = function (hexo) {
       var slice = Array.prototype.slice,
         options = slice.call(arguments, arguments.length - 1);
 
-      if (hexoHelpers.is_tag()) {
+      if (hexoHelpers.is_tag.call(this)) {
         return options.fn(this);
       }
     }

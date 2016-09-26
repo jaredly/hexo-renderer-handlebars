@@ -5,6 +5,6 @@ module.exports = function(hexo){return function(options){
     hexoHelpers = hexo.extend.helper.list(),
     result;
 
-  result = hexoHelpers.paginator(opts);
+  result = hexoHelpers.paginator.call(this, opts);
   return new handlebars.SafeString(result);
 }};
