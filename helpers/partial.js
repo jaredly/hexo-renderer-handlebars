@@ -5,6 +5,7 @@ module.exports = function(hexo){return function(view, options){
     opts = options.hash || {},
     result;
 
-  result = hexoHelpers.partial(view, opts);
+  var self = arguments[arguments.length - 1].data.root;
+  result = hexoHelpers.partial.call(self, view, opts);
   return new handlebars.SafeString(result);
 }};
