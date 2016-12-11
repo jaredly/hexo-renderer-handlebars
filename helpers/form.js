@@ -7,7 +7,8 @@ module.exports = function(hexo) {
       var opts = options.hash || {},
         result;
 
-      result = hexoHelpers.search_form(opts);
+      var self = arguments[arguments.length - 1].data.root;
+      result = hexoHelpers.search_form.call(self, opts);
       return new handlebars.SafeString(result);
     },
   }

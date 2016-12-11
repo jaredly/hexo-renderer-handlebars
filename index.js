@@ -24,11 +24,11 @@ function handlebarsRenderer(data, locals) {
     });
   }
 
-  var helpers = require(helperDir)(hexo);
-  for (var name in locals) {
-    if ('function' !== typeof locals[name]) continue;
-    if (name in helpers) continue;
-    helpers[name] = locals[name];
+  var helpers = {};
+  try {
+    helpers = require(helperDir)(hexo);
+  } catch(e) {
+      // no additional helpers available. No problem.
   }
 
   return template(locals, {

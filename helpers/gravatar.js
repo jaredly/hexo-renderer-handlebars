@@ -5,6 +5,7 @@ module.exports = function(hexo){return function() {
     hexoHelpers = hexo.extend.helper.list(),
     result;
 
-  result = hexoHelpers.gravatar.apply(null, args);
+  var self = arguments[arguments.length - 1].data.root;
+  result = hexoHelpers.gravatar.apply(self, args);
   return new handlebars.SafeString(result);
 }};
