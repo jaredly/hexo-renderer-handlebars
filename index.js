@@ -31,13 +31,17 @@ function handlebarsRenderer(data, locals) {
       // no additional helpers available. No problem.
   }
 
-  return template(locals, {
-    helpers: helpers
+  return new Promise(function (resolve, reject) {
+    resolve(template(locals, {
+      helpers: helpers
+    }));
   });
 }
 
+handlebarsRenderer.disableNunjucks = true;
+
 ['hbs', 'handlebars'].forEach(function(extension) {
-  hexo.extend.renderer.register(extension, 'html', handlebarsRenderer, true);
+  hexo.extend.renderer.register(extension, 'html', handlebarsRenderer, false);
 });
 
 exports.handlebars = handlebars;
